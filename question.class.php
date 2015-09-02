@@ -188,10 +188,6 @@ class question {
     }
 
     public function isCorrect($answer) {
-        echo '<br />';
-        echo '<br />';
-        echo $answer;
-        echo '<br />';
         switch ($this->type) {
             case 'cloze':
                 if (!$this->isMultiple()) {

@@ -1,9 +1,4 @@
 <?php
-// DB Config
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "quizez";
 
 $activity = array (
     'url' => 'http://localhost:8888/tincan_php/quiz.php',

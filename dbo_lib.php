@@ -1,5 +1,12 @@
 <?php
 
+// DB Config
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "quizez";
+
+
 class DBO
 {
 	var $server;

@@ -14,10 +14,8 @@
 <body>
     <form name="tincan_test" action="results.php" method="post">
     <?php
-        require("config.php");
         require("dbo_lib.php");
         require("question.class.php");
-//        require("get_questions.php");
 
         $questions_tmp = array();
         $args = $_POST;
@@ -40,8 +38,6 @@
         }
 
         try {
-    //            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    //            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $dbo = new DBO ($servername, $username, $password, $dbname);
 
             foreach ($questions_tmp as $key => $value) {
@@ -59,7 +55,6 @@
             echo $e->getMessage();
         }
         $conn = null;
-//    require("render.php");
     ?>
     <input type="hidden" value="<?php echo $questions;?>" />
     <div class="buttons"><input type="submit" value="Send" /></div>
