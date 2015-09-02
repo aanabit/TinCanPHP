@@ -26,6 +26,8 @@ var MulipleAnswer = React.createClass({
       return false;
   },
   render: function() {
+    var qtype_name = 'qtype_' +  + this.props.numberOfQuestion;
+
     var answers = this.state.answers,
         addremovebuttons,
         numberOfAnswers = this.state.numberOfAnswers,
@@ -40,11 +42,14 @@ var MulipleAnswer = React.createClass({
     
           
     if(addNew) {
-       answers.push(
+        var answer_name = "q_" + this.props.numberOfQuestion + 'a_' + this.state.numberOfAnswers;
+        var check_name = "q_" + this.props.numberOfQuestion + 'ck_' + this.state.numberOfAnswers;
+
+        answers.push(
                 <div className="checkbox">
                 <label> 
-                    <input type="checkbox" name="multipleanswers_check" value="0"/>
-                    <input type="text" size="50" />
+                    <input type="checkbox" name="multipleanswers_check" name={check_name} value={this.state.numberOfAnswers} />
+                    <input type="text" size="50" name={answer_name} />
                 </label>
                 </div>);
      }else {
@@ -53,7 +58,7 @@ var MulipleAnswer = React.createClass({
    
 
     return (<div>
-            <input type="hidden" name="question_type" value="choice"/>
+            <input type="hidden" name={qtype_name} value="cloze"/>
             {answers}
             {addremovebuttons}</div>)
   }
@@ -132,6 +137,7 @@ var FillTheGap = React.createClass({
           answers: answers,
           value_array: value_array
         })
+        return false;
 
   },
   handleChange: function(evt) {
@@ -140,7 +146,10 @@ var FillTheGap = React.createClass({
       noAddOrRemove: true
     });
   },
-  render: function() { 
+  render: function() {
+      var qtype_name = 'qtype_' +  + this.props.numberOfQuestion;
+      var answer_name = 'q_' +  + this.props.numberOfQuestion + 'a_' + this.state.numberOfAnswers;
+
     var answers = this.state.answers,
         addremovebuttons,
         numberOfAnswers = this.state.numberOfAnswers,
@@ -165,7 +174,7 @@ var FillTheGap = React.createClass({
     }
 
     return (<div>
-            <input type="hidden" name="question_type" value="shortanswer"/>
+            <input type="hidden" name={qtype_name} value="shortanswer"/>
             <ul>{answers}</ul>
             {addremovebuttons}
             </div>)
@@ -187,28 +196,30 @@ var Question_Type = React.createClass({
 
     switch(answerslist) {
       case 'yesno':
+        var radio_name = 'q_' + this.props.numberOfQuestion + 'a_';
+        var qtype_name = 'qtype_' +  + this.props.numberOfQuestion;
         answerstype = (
                     <div>
-                      <input type="hidden" name="question_type" value="yesno"/>
+                      <input type="hidden" name={qtype_name} value="yesno"/>
                       <div className="radio">
                       <label>
-                          <input type="radio" name="yesno_radio" value="Yes"/>
+                          <input type="radio" name={radio_name} value="Yes"/>
                           Yes
                       </label>
                       </div>
                       <div className="radio">
                       <label>
-                          <input type="radio" name="yesno_radio" value="No"/>
+                          <input type="radio" name={radio_name} value="No"/>
                           No
                       </label>
                       </div>
                     </div>); 
         break;
       case 'multipleanswer':
-        answerstype = (<MulipleAnswer />);
+        answerstype = (<MulipleAnswer numberOfQuestion={this.props.numberOfQuestion} />);
         break;
       case "fillthegap":
-        answerstype = (<FillTheGap />);
+        answerstype = (<FillTheGap numberOfQuestion={this.props.numberOfQuestion} />);
         break;
       default:
         answerstype = (<label>No type selected yet</label>);
@@ -230,16 +241,16 @@ var Question_Type = React.createClass({
 
 var Question = React.createClass({
    render: function() {
-       var id = "q_" + this.props.numberOfQuestions;
+       var id = "q_" + this.props.numberOfQuestion;
        return (
            <div>
             <div>
            <h3>Question {this.props.numberOfQuestion}:</h3>
-           <input type="text" size="50" id={name} />
+           <input type="text" size="50" name={id} id={id} />
            </div>
            <br />
            <div>
-            <Question_Type />
+            <Question_Type numberOfQuestion={this.props.numberOfQuestion} />
            </div>
        </div>
        );

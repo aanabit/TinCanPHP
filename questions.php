@@ -1,10 +1,4 @@
 <?php
-    $activity = array (
-        'url' => 'http://localhost:8888/tincan_php/quiz.php',
-        'name' => 'TIN CAN Test activity',
-        'objectives' => 'Testing Tin Can',
-        'type' => 'choices'
-    );
 
     $questions = array(
         array(

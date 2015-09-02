@@ -2,11 +2,35 @@
 
 <?php
 
-//$db = db_connect();
-//$questions = db_getQuestions($db);
+$questions = array();
+
+$dbo = new DBO ($servername, $username, $password, $dbname);
+$sql = "SELECT * FROM questions";
+
+$dbo->query ($sql) or die ($dbo->ShowError ());
+while ($question = $dbo->emaitza ()) {
+    $question['before'] = $question['before_text'];
+    $question['after'] = $question['after_text'];
+    $question['values'] = json_decode($question['values_text'], true);
+
+    $questions[] = $question;
+}
+
+function is_multiple($values) {
+    $correct = false;
+
+    foreach ($values as $value) {
+        if ($value['correct']) {
+            if ($correct) {
+                return true;
+            }
+            $correct = true;
+        }
+    }
+    return $false;
+}
 
 foreach($questions as $question) {
-
     echo '<div id="q'.$question['id'].'" class="question">';
     echo $question['before'].' ';
 
@@ -15,9 +39,14 @@ foreach($questions as $question) {
             echo '<div class="answers">';
             $i = 1;
 
+            $multiple = is_multiple($question['values']);
             foreach ($question['values'] as $value) {
                 echo '<div class="answer">';
-                echo '<input type="radio" name="q'.$question['id'].'" id="q'.$question['id'].'_'.$i.'" value="'.$value['value'].'" />';
+                if ($multiple) {
+                    echo '<input type="checkbox" name="q'.$question['id'].'[]" id="q'.$question['id'].'_'.$i.'" value="'.$value['value'].'" />';
+                } else {
+                    echo '<input type="radio" name="q'.$question['id'].'" id="q'.$question['id'].'_'.$i.'" value="'.$value['value'].'" />';
+                }
                 echo '<label for="q'.$question['id'].'_'.$i.'">'.$value['value'].'</label>';
                 echo '</div>';
                 $i++;
@@ -25,6 +54,19 @@ foreach($questions as $question) {
             echo '</div>';
             break;
         case 'choice':
+            echo '<div class="answers">';
+            $i = 1;
+
+            foreach ($question['values'] as $value) {
+                echo '<div class="answer">';
+                echo '<input type="checkbox" name="q'.$question['id'].'[]" id="q'.$question['id'].'_'.$i.'" value="'.$value['value'].'" />';
+                echo '<label for="q'.$question['id'].'_'.$i.'">'.$value['value'].'</label>';
+                echo '</div>';
+                $i++;
+            }
+            echo '</div>';
+            break;
+        case 'select':
             echo '<select name="q'.$question['id'].'" id="q'.$question['id'].'">';
             $i = 0;
             foreach ($question['values'] as $value) {
@@ -46,3 +88,4 @@ foreach($questions as $question) {
     <div class="buttons"><input type="submit" value="Send" /></div>
 
 </form>
+

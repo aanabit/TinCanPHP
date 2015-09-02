@@ -1,10 +1,41 @@
 <?php
 
     require("vendor/autoload.php");
-    require("tincan.php");
+    // require("tincan.php");
 
-    require("questions.php");
-    /** Using Tin Can PHP API **/
+    require("config.php");
+    require("dbo_lib.php");
+    require("question.class.php");
+
+    $questions = array();
+    $corrects = 0;
+    $total = 0;
+
+    $dbo = new DBO ($servername, $username, $password, $dbname);
+    $sql = "SELECT * FROM questions";
+
+    $dbo->query ($sql) or die ($dbo->ShowError ());
+    while ($questionDB = $dbo->emaitza()) {
+        $question = new question($questionDB);
+        $total++;
+
+        $qid = 'q'.$question->getId();
+        $answer = $_POST[$qid];
+        if ($question->isCorrect($answer)) {
+            $corrects++;
+        }
+    }
+    if ($corrects > 0 && $total > 0) {
+        $scaled = $corrects / $total;
+    } else {
+        $scaled = 0;
+    }
+
+
+echo 'Corrects: '.$corrects;
+echo '<br />Total: '.$total;
+
+/** Using Tin Can PHP API **/
 
     $lrs = new TinCan\RemoteLRS(
         $tincan_data['endpoint'],
@@ -30,7 +61,6 @@
     $verb = new TinCan\Verb();
     $verb->setDisplay([]);
 
-    $corrects = corrections($questions);
     if (sizeof($questions) > 0 && $corrects > (sizeof($questions) / 2)) {
         $verb
             ->setId('http://adlnet.gov/expapi/verbs/passed')
@@ -56,14 +86,6 @@
         ->getDescription()
         ->set('en-GB', $activity['objectives']);
 
-    $corrects = corrections($questions);
-    $total = sizeof($questions);
-    if ($corrects > 0 && $total > 0) {
-        $scaled = $corrects / $total;
-    } else {
-        $scaled = 0;
-    }
-
     $result = new TinCan\Result();
     $result
         ->setCompletion(true)
@@ -87,107 +109,17 @@
 
     // Send the statement
 
+/**
     $response = $lrs->saveStatement($statement);
     if ($response->success) {
         print "Statement sent successfully!";
     } else {
         print "Error statement not sent: " . $response->content;
     }
-
-/** Not using Tin Can PHP API
-$actor = create_actor($user);
-$verb = create_verb($questions);
-$object = create_object($activity, $questions);
-$result = create_result($questions);
-
-$statement = array(
-    'timestamp' => date(DATE_ATOM, time()),
-    'version' => '1.0.0',
-    'actor' => $actor,
-    'verb' => $verb,
-    'object' => $object,
-    'result' => $result
-);
-$json_statement = json_encode($statement);
-
-echo $json_statement;
-
-function create_actor($user) {
-    $account = array(
-        'name' => $user['username'],
-        'homePage' => $user['url']
-    );
-
-    $actor = array (
-        'account' => $account,
-        'name' => $user['username'],
-        'objectType' => 'Agent'
-    );
-
-    return $actor;
-}
-
-function create_verb($questions) {
-    $corrects = corrections($questions);
-    if (sizeof($questions) > 0 && $corrects > (sizeof($questions) / 2) ) {
-        $verb = array(
-            'id' => 'http://adlnet.gov/expapi/verbs/passed',
-            'display' => array ('en-GB' => 'passed')
-        );
-    } else {
-        $verb = array(
-            'id' => 'http://adlnet.gov/expapi/verbs/failed',
-            'display' => array ('en-GB' => 'failed')
-        );
-    }
-    return $verb;
-}
-
-function create_object($activity, $questions) {
-    $definition = array(
-        'name' => array('en-GB' => $activity['name']),
-        'description' => array('en-GB' => $activity['objectives'])
-    );
-
-    $object = array (
-        'id' => $activity['url'],
-        'definition' => $definition,
-        'objectType' => 'Activity'
-    );
-
-    return $object;
-}
-
-function create_result($questions) {
-    $corrects = corrections($questions);
-    $total = sizeof($questions);
-    if ($corrects > 0 && $total > 0) {
-        $scaled = $corrects / $total;
-    } else {
-        $scaled = 0;
-    }
-
-    $score = array(
-        'min' => 0,
-        'max' => $total,
-        'scaled' => $scaled,
-        'raw' => $corrects
-    );
-
-    $result = array(
-        'score' => $score,
-        'success' => ($total > 0 && $corrects > ($total / 2)),
-        'completion' => true,
-        'response' => get_responses($questions)
-    );
-
-    return $result;
-}
-
- **/
+**/
 
 // Util functions
-
+/**
 function corrections($questions) {
     $corrects = 0;
     foreach ($questions as $question) {
@@ -203,7 +135,35 @@ function is_correct($question) {
 
     switch ($question['type']) {
         case 'cloze':
+//            var_dump($question);
+//            echo '<br />';
+//            var_dump($answer);
+//            echo '<br />';
+            // TODO: More than one correct answer
+            foreach ($question['values'] as $value) {
+                if ($question['correct']) {
+                    if (!in_array($value['value'], $answer)) {
+                        echo 'inCorrect';
+                        return false;
+                    }
+                } else {
+                    if (in_array($value['value'], $answer)) {
+                        echo 'inCorrect';
+                        return false;
+                    }
+                }
+            }
+            echo 'Correct';
+            return true;
+            break;
         case 'choice':
+            foreach ($question['values'] as $value) {
+                if ($answer == $value['value']) {
+                    return $value['correct'];
+                }
+            }
+            break;
+        case 'select':
             foreach ($question['values'] as $value) {
                 if ($answer == $value['value']) {
                     return $value['correct'];
@@ -215,6 +175,7 @@ function is_correct($question) {
             break;
     }
 }
+ **/
 
 function get_responses($questions) {
     $responses = '';
