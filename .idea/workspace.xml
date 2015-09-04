@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5517b63a-da52-4d6e-8444-a33fe2087f94" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myTinCanAPI.class.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/get_questions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/questions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/render.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tincan.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbo_lib.php" afterPath="$PROJECT_DIR$/dbo_lib.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/tincan.css" afterPath="$PROJECT_DIR$/src/css/tincan.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myTinCanAPI.class.php" afterPath="$PROJECT_DIR$/myTinCanAPI.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/question.class.php" afterPath="$PROJECT_DIR$/question.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/quiz.js" afterPath="$PROJECT_DIR$/src/js/quiz.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quiz.php" afterPath="$PROJECT_DIR$/quiz.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/results.php" afterPath="$PROJECT_DIR$/results.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -63,10 +57,11 @@
       <file leaf-file-name="quiz.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="-24.375">
+              <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
               <folding>
-                <marker date="1441208387000" expanded="true" signature="1719:1742" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441361064000" expanded="true" signature="3068:3091" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441361064000" expanded="true" signature="3068:3111" placeholder="SELECT * FRO..questions..." />
               </folding>
             </state>
           </provider>
@@ -75,8 +70,8 @@
       <file leaf-file-name="dbo_lib.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbo_lib.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5882353">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="-32.5">
+              <caret line="70" column="28" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -92,17 +87,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="question.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/question.class.php">
+      <file leaf-file-name="tincan.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/tincan.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.0">
-              <caret line="176" column="37" selection-start-line="176" selection-start-column="37" selection-end-line="176" selection-end-column="37" />
-              <folding>
-                <marker date="1441208630000" expanded="true" signature="3645:3741" placeholder="INSERT INTO ..." />
-                <marker date="1441208630000" expanded="true" signature="3645:3760" placeholder="INSERT INTO ..." />
-                <marker date="1441208630000" expanded="true" signature="3645:3801" placeholder="INSERT INTO ..." />
-                <marker date="1441208630000" expanded="true" signature="3645:3833" placeholder="INSERT INTO ..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,23 +112,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="results.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/results.php">
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59666973">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="question.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/question.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-76.875">
+              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding>
-                <marker date="1441209260000" expanded="true" signature="275:298" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441359580000" expanded="true" signature="4952:5048" placeholder="INSERT INTO ..." />
+                <marker date="1441359580000" expanded="true" signature="4952:5067" placeholder="INSERT INTO ..." />
+                <marker date="1441359580000" expanded="true" signature="4952:5108" placeholder="INSERT INTO ..." />
+                <marker date="1441359580000" expanded="true" signature="4952:5140" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myTinCanAPI.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="results.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/results.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-28.75">
+              <caret line="89" column="52" selection-start-line="89" selection-start-column="52" selection-end-line="89" selection-end-column="52" />
+              <folding>
+                <marker date="1441363033000" expanded="true" signature="421:444" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="558:581" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="558:587" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="558:588" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="558:597" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="558:600" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="1655:3642" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="1662:1681" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="1662:2192" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2199:2211" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2199:3634" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2223:3572" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2245:2349" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2289:2338" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2371:3565" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2403:3554" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2502:3539" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2537:3519" placeholder="..." />
+                <marker date="1441363033000" expanded="true" signature="2740:2781" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="2740:2782" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="2740:2798" placeholder="SELECT * FRO..questions..." />
+                <marker date="1441363033000" expanded="true" signature="2740:2873" placeholder="SELECT * FRO..questions..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.625">
+              <caret line="9" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myTinCanAPI.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myTinCanAPI.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.019608">
-              <caret line="104" column="72" selection-start-line="104" selection-start-column="72" selection-end-line="104" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.360519">
+              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -164,16 +210,17 @@
         <option value="$PROJECT_DIR$/ejercicio.php" />
         <option value="$PROJECT_DIR$/questions.php" />
         <option value="$PROJECT_DIR$/tincan.php" />
-        <option value="$PROJECT_DIR$/src/js/quiz.js" />
         <option value="$PROJECT_DIR$/render.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2d10b765-ef8d-4785-8e9e-967f2c792388/console.sql" />
         <option value="$PROJECT_DIR$/get_questions.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/dbo_lib.php" />
-        <option value="$PROJECT_DIR$/quiz.php" />
+        <option value="$PROJECT_DIR$/src/js/quiz.js" />
         <option value="$PROJECT_DIR$/question.class.php" />
-        <option value="$PROJECT_DIR$/myTinCanAPI.class.php" />
+        <option value="$PROJECT_DIR$/src/css/tincan.css" />
+        <option value="$PROJECT_DIR$/quiz.php" />
         <option value="$PROJECT_DIR$/results.php" />
+        <option value="$PROJECT_DIR$/myTinCanAPI.class.php" />
       </list>
     </option>
   </component>
@@ -217,8 +264,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,8 +282,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tincan_php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tincan_php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tincan_php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tincan_php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,6 +333,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/tests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/css" />
     </key>
   </component>
   <component name="RunManager">
@@ -303,12 +385,11 @@
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18711385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16299179" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16299179" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24989192" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20622568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20968439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -316,6 +397,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18656057" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -366,7 +448,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <marker date="1441208387000" expanded="true" signature="1719:1742" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441361064000" expanded="true" signature="3068:3091" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441361064000" expanded="true" signature="3068:3111" placeholder="SELECT * FRO..questions..." />
           </folding>
         </state>
       </provider>
@@ -405,7 +488,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="135" column="2" selection-start-line="135" selection-start-column="2" selection-end-line="135" selection-end-column="2" />
           <folding>
-            <marker date="1441209260000" expanded="true" signature="275:298" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="421:444" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:581" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:587" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:588" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:597" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:600" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="1655:3642" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="1662:1681" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="1662:2192" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2199:2211" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2199:3634" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2223:3572" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2245:2349" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2289:2338" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2371:3565" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2403:3554" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2502:3539" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2537:3519" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2781" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2782" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2798" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2873" placeholder="SELECT * FRO..questions..." />
           </folding>
         </state>
       </provider>
@@ -415,7 +519,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="30" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="30" />
           <folding>
-            <marker date="1441208387000" expanded="true" signature="1719:1742" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441361064000" expanded="true" signature="3068:3091" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441361064000" expanded="true" signature="3068:3111" placeholder="SELECT * FRO..questions..." />
           </folding>
         </state>
       </provider>
@@ -438,7 +543,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1441209260000" expanded="true" signature="275:298" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="421:444" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:581" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:587" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:588" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:597" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:600" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="1655:3642" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="1662:1681" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="1662:2192" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2199:2211" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2199:3634" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2223:3572" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2245:2349" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2289:2338" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2371:3565" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2403:3554" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2502:3539" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2537:3519" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2781" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2782" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2798" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2873" placeholder="SELECT * FRO..questions..." />
           </folding>
         </state>
       </provider>
@@ -527,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.777778">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../conf/apache/httpd.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -545,21 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-320.0">
           <caret line="526" column="20" selection-start-line="526" selection-start-column="20" selection-end-line="526" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/quiz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3330241">
-          <caret line="142" column="10" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33302498">
-          <caret line="24" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -574,7 +678,78 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63367254">
           <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/quiz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="189" column="51" selection-start-line="189" selection-start-column="51" selection-end-line="189" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.625">
+          <caret line="9" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/tincan.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbo_lib.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-32.5">
+          <caret line="70" column="28" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/question.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-76.875">
+          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding>
+            <marker date="1441359580000" expanded="true" signature="4952:5048" placeholder="INSERT INTO ..." />
+            <marker date="1441359580000" expanded="true" signature="4952:5067" placeholder="INSERT INTO ..." />
+            <marker date="1441359580000" expanded="true" signature="4952:5108" placeholder="INSERT INTO ..." />
+            <marker date="1441359580000" expanded="true" signature="4952:5140" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.375">
+          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
+          <folding>
+            <marker date="1441361064000" expanded="true" signature="3068:3091" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441361064000" expanded="true" signature="3068:3111" placeholder="SELECT * FRO..questions..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -591,60 +766,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbo_lib.php">
+    <entry file="file://$PROJECT_DIR$/results.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5882353">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/quiz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="-28.75">
+          <caret line="89" column="52" selection-start-line="89" selection-start-column="52" selection-end-line="89" selection-end-column="52" />
           <folding>
-            <marker date="1441208387000" expanded="true" signature="1719:1742" placeholder="SELECT * FRO..questions..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/question.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.0">
-          <caret line="176" column="37" selection-start-line="176" selection-start-column="37" selection-end-line="176" selection-end-column="37" />
-          <folding>
-            <marker date="1441208630000" expanded="true" signature="3645:3741" placeholder="INSERT INTO ..." />
-            <marker date="1441208630000" expanded="true" signature="3645:3760" placeholder="INSERT INTO ..." />
-            <marker date="1441208630000" expanded="true" signature="3645:3801" placeholder="INSERT INTO ..." />
-            <marker date="1441208630000" expanded="true" signature="3645:3833" placeholder="INSERT INTO ..." />
+            <marker date="1441363033000" expanded="true" signature="421:444" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:581" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:587" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:588" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:597" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="558:600" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="1655:3642" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="1662:1681" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="1662:2192" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2199:2211" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2199:3634" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2223:3572" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2245:2349" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2289:2338" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2371:3565" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2403:3554" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2502:3539" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2537:3519" placeholder="..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2781" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2782" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2798" placeholder="SELECT * FRO..questions..." />
+            <marker date="1441363033000" expanded="true" signature="2740:2873" placeholder="SELECT * FRO..questions..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myTinCanAPI.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.019608">
-          <caret line="104" column="72" selection-start-line="104" selection-start-column="72" selection-end-line="104" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.360519">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59666973">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <marker date="1441209260000" expanded="true" signature="275:298" placeholder="SELECT * FRO..questions..." />
-          </folding>
         </state>
       </provider>
     </entry>

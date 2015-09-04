@@ -22,7 +22,6 @@ class myTinCanAPI {
             $user['pass']
         );
         $this->createActor();
-        $this->createObject();
     }
 
     function createActor() {
@@ -56,7 +55,17 @@ class myTinCanAPI {
         }
     }
 
-    function createObject() {
+    function createLastVerb() {
+        $this->verb = new TinCan\Verb();
+        $this->verb->setDisplay([]);
+
+        $this->verb
+            ->setId('http://adlnet.gov/expapi/verbs/completed')
+            ->getDisplay()
+            ->set('en-GB', 'completed');
+    }
+
+    function createObject($name) {
         global $activity;
 
         $this->object = new TinCan\Activity();
@@ -65,7 +74,7 @@ class myTinCanAPI {
             ->setDefinition([]);
         $this->object->getDefinition()
             ->getName()
-            ->set('en-GB', $activity['name']);
+            ->set('en-GB', $name);
         $this->object->getDefinition()
             ->getDescription()
             ->set('en-GB', $activity['objectives']);

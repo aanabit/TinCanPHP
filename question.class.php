@@ -77,6 +77,37 @@ class question {
                 }
                 $this->values = $values;
                 break;
+            case 'short':
+                $this->type = 'short';
+                $len = sizeof($question_tmp['values']);
+                $values = array();
+                for ($i = 1; $i <= $len; $i++) {
+                    $values[] = $question_tmp['values'][$i-1];
+                }
+                $this->values = $values;
+                break;
+            case 'short':
+                $this->type = 'short';
+                $len = sizeof($question_tmp['values']);
+                $values = array();
+                for ($i = 1; $i <= $len; $i++) {
+                    $values[] = $question_tmp['values'][$i-1];
+                }
+                $this->values = $values;
+                break;
+            case 'fillthegap':
+                $this->type = 'fillthegap';
+                $len = sizeof($question_tmp['values']);
+                $values = array();
+                for ($i = 1; $i <= $len; $i++) {
+                    if (in_array($question_tmp['values'][$i-1], $question_tmp['corrects'])) {
+                        $values[] = array('value' => $question_tmp['values'][$i-1], 'correct' => true);
+                    } else {
+                        $values[] = array('value' => $question_tmp['values'][$i-1], 'correct' => false);
+                    }
+                }
+                $this->values = $values;
+                break;
         }
         return $this;
     }
@@ -121,10 +152,6 @@ class question {
         return $this->values;
     }
 
-    public function getQuestion() {
-
-    }
-
     public function insertQuestion($conn) {
         $sql = "INSERT INTO questions (type, before_text, after_text, values_text)
                     VALUES ('".$this->type."', '".$this->before."', '".$this->after."', '".json_encode($this->values)."')";
@@ -134,7 +161,7 @@ class question {
 
     public function render() {
         $html = '<div id="q'.$this->id.'" class="question">';
-        $html .= $this->before.' ';
+        $html .= '<h3>'.$this->before.'</h3>';
 
         switch ($this->type) {
             case 'cloze':
@@ -161,7 +188,7 @@ class question {
                 $i = 1;
 
                 foreach ($this->values as $value) {
-                    $html .= '<div class="answer">';
+                    $html .= '<div class="answer checkbox">';
                     $html .= '<input type="checkbox" name="q'.$this->id.'[]" id="q'.$this->id.'_'.$i.'" value="'.$value['value'].'" />';
                     $html .= '<label for="q'.$this->id.'_'.$i.'">'.$value['value'].'</label>';
                     $html .= '</div>';
@@ -176,12 +203,23 @@ class question {
                 }
                 $html .= '</select>';
                 break;
-            case 'shortanswer':
+            case 'short':
                 $html .= '<input type="text" name="q'.$this->id.'" />';
+                break;
+            case 'fillthegap':
+                $html .= '<div class="answers">';
+                foreach ($this->values as $value) {
+                    if ($value['correct']) {
+                        $html .= '<input type="text" name="q'.$this->id.'" id="q'.$this->id.'" />';
+                    } else {
+                        $html .= $value['value'];
+                    }
+                }
+                $html .= '</div>';
                 break;
         }
 
-        $html .= ' '.$this->after;
+        $html .= $this->after;
         $html .= '</div>';
 
         return $html;
@@ -220,8 +258,15 @@ class question {
                     }
                 }
                 break;
-            case 'shortanswer':
+            case 'short':
                 return in_array($answer, $this->values);
+                break;
+            case 'fillthegap':
+                foreach ($this->values as $value) {
+                    if ($answer == $value['value']) {
+                        return $value['correct'];
+                    }
+                }
                 break;
         }
         return false;

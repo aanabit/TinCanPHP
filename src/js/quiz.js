@@ -4,28 +4,28 @@
 'use strict';
 
 var MulipleAnswer = React.createClass({
-  getInitialState: function () {
+    getInitialState: function () {
     return {
-      numberOfAnswers: 1,
-      answers: [],
-      addNew: true
+        numberOfAnswers: 1,
+        answers: [],
+        addNew: true
     }
-  },
-  addAnswer: function () {
-       this.setState({
+},
+addAnswer: function () {
+    this.setState({
         numberOfAnswers: this.state.numberOfAnswers + 1,
         addNew:true
-      });
-      return false;
-  },
-  removeAnswer: function() {
-      this.setState({
+    });
+    return false;
+},
+removeAnswer: function() {
+    this.setState({
         numberOfAnswers: this.state.numberOfAnswers - 1,
         addNew:false
-      });
-      return false;
-  },
-  render: function() {
+    });
+    return false;
+},
+render: function() {
     var qtype_name = 'qtype_' +  + this.props.numberOfQuestion;
 
     var answers = this.state.answers,
@@ -35,33 +35,92 @@ var MulipleAnswer = React.createClass({
 
     if(numberOfAnswers > 0 ) {
         addremovebuttons = ( <div><button onClick={this.addAnswer} className="btn btn-primary">Add Answer</button>
-                          <button onClick={this.removeAnswer} className="btn btn-warning">Remove Answer</button></div>);
-    }else {
-      addremovebuttons = (<div>No Answers added<br /> <button onClick={this.addAnswer} className="btn btn-primary">Add Answer</button></div>);
+    <button onClick={this.removeAnswer} className="btn btn-warning">Remove Answer</button></div>);
+}else {
+    addremovebuttons = (<div>No Answers added<br /> <button onClick={this.addAnswer} className="btn btn-primary">Add Answer</button></div>);
+}
+
+
+if(addNew) {
+    var answer_name = "q_" + this.props.numberOfQuestion + 'a_' + this.state.numberOfAnswers;
+    var check_name = "q_" + this.props.numberOfQuestion + 'ck_' + this.state.numberOfAnswers;
+
+    answers.push(
+    <div className="checkbox">
+        <label>
+        <input type="checkbox" name="multipleanswers_check" name={check_name} value={this.state.numberOfAnswers} />
+<input type="text" size="50" name={answer_name} />
+    </label>
+    </div>);
+}else {
+    answers.pop();
+}
+
+
+return (<div>
+    <input type="hidden" name={qtype_name} value="cloze"/>
+    {answers}
+{addremovebuttons}</div>)
+}
+});
+
+var ShortAnswer = React.createClass({
+    getInitialState: function () {
+    return {
+        numberOfAnswers: 1,
+        answers: [],
+        addNew: true
     }
-    
-          
-    if(addNew) {
-        var answer_name = "q_" + this.props.numberOfQuestion + 'a_' + this.state.numberOfAnswers;
-        var check_name = "q_" + this.props.numberOfQuestion + 'ck_' + this.state.numberOfAnswers;
+},
+addAnswer: function () {
+    this.setState({
+        numberOfAnswers: this.state.numberOfAnswers + 1,
+        addNew:true
+    });
+    return false;
+},
+removeAnswer: function() {
+    this.setState({
+        numberOfAnswers: this.state.numberOfAnswers - 1,
+        addNew:false
+    });
+    return false;
+},
+render: function() {
+    var qtype_name = 'qtype_' +  + this.props.numberOfQuestion;
 
-        answers.push(
-                <div className="checkbox">
-                <label> 
-                    <input type="checkbox" name="multipleanswers_check" name={check_name} value={this.state.numberOfAnswers} />
-                    <input type="text" size="50" name={answer_name} />
-                </label>
-                </div>);
-     }else {
-       answers.pop();
-     }
-   
+    var answers = this.state.answers,
+        addremovebuttons,
+        numberOfAnswers = this.state.numberOfAnswers,
+        addNew = this.state.addNew;
 
-    return (<div>
-            <input type="hidden" name={qtype_name} value="cloze"/>
-            {answers}
-            {addremovebuttons}</div>)
-  }
+    if(numberOfAnswers > 0 ) {
+        addremovebuttons = ( <div><button onClick={this.addAnswer} className="btn btn-primary">Add Answer</button>
+    <button onClick={this.removeAnswer} className="btn btn-warning">Remove Answer</button></div>);
+}else {
+    addremovebuttons = (<div>No Answers added<br /> <button onClick={this.addAnswer} className="btn btn-primary">Add Answer</button></div>);
+}
+
+
+if(addNew) {
+    var answer_name = "q_" + this.props.numberOfQuestion + 'a_' + this.state.numberOfAnswers;
+
+    answers.push(
+    <div className="checkbox">
+        <label>
+<input type="text" size="50" name={answer_name} />
+    </label>
+    </div>);
+}else {
+    answers.pop();
+}
+
+
+return (<div>
+    <input type="hidden" name={qtype_name} value="short"/>
+    {answers}
+{addremovebuttons}</div>)
+}
 });
 
 var FillTheGap = React.createClass({
@@ -70,7 +129,7 @@ var FillTheGap = React.createClass({
       numberOfAnswers: 1,
       answers: [],
       addNew: true,
-      value: "Insert the anser",
+      value: "Insert the answer",
       value_array: [],
       noAddOrRemove: false
     }
@@ -99,7 +158,8 @@ var FillTheGap = React.createClass({
     var text = [], i;
 
     for(i = 0; i<value_array.length; i++) {
-      text.push(<button onClick={this.swapValue.bind(this,i)} className="btn btn-default btn-sm">{value_array[i]}</button>);
+      var answer_name = "q_" + this.props.numberOfQuestion + "w_" + i;
+      text.push(<input type="text" readonly onClick={this.swapValue.bind(this,i)} className="btn btn-default btn-sm" id={answer_name} name={answer_name} value={value_array[i]} />);
     }
 
     answers.pop()
@@ -117,15 +177,17 @@ var FillTheGap = React.createClass({
         answers = this.state.answers,
         text = [], i;
 
-        console.log(value_array[index]);
+//        console.log(value_array[index]);
 
-        value_array[index] = "....";
+//        value_array[index] = "....";
 
          for(i = 0; i<value_array.length; i++) {
            if (i == index) {
-             text.push(<button className="btn btn-success btn-sm">{value_array[i]}</button>);
+               var answer_name = "q_" + this.props.numberOfQuestion + "g_" + i;
+               text.push(<input type="text" readonly onClick={this.swapValue.bind(this,i)} className="btn btn-success btn-sm" id={answer_name} name={answer_name} value={value_array[i]} />);
            }else {
-             text.push(<button className="btn btn-default btn-sm">{value_array[i]}</button>);
+             var answer_name = "q_" + this.props.numberOfQuestion + "w_" + i;
+             text.push(<input type="text" readonly onClick={this.swapValue.bind(this,i)} className="btn btn-default btn-sm" id={answer_name} name={answer_name} value={value_array[i]} />);
            }
           
         }
@@ -157,8 +219,7 @@ var FillTheGap = React.createClass({
         addNew = this.state.addNew;
 
     if(numberOfAnswers > 0 ) {
-        addremovebuttons = ( <div><button onClick={this.addAnswer} className="btn btn-primary btn-sm">Add Answer</button>
-                          <button onClick={this.removeAnswer} className="btn btn-warning btn-sm">Remove Answer</button></div>);
+        addremovebuttons = ( <div><button onClick={this.removeAnswer} className="btn btn-warning btn-sm">Remove Answer</button></div>);
     }else {
       addremovebuttons = (<div>No Answers added<button onClick={this.addAnswer} className="btn btn-primary btn-sm">Add Answer</button></div>);
     }
@@ -174,7 +235,7 @@ var FillTheGap = React.createClass({
     }
 
     return (<div>
-            <input type="hidden" name={qtype_name} value="shortanswer"/>
+            <input type="hidden" name={qtype_name} value="fillthegap"/>
             <ul>{answers}</ul>
             {addremovebuttons}
             </div>)
@@ -218,6 +279,9 @@ var Question_Type = React.createClass({
       case 'multipleanswer':
         answerstype = (<MulipleAnswer numberOfQuestion={this.props.numberOfQuestion} />);
         break;
+      case 'short':
+        answerstype = (<ShortAnswer numberOfQuestion={this.props.numberOfQuestion} />);
+        break;
       case "fillthegap":
         answerstype = (<FillTheGap numberOfQuestion={this.props.numberOfQuestion} />);
         break;
@@ -231,6 +295,7 @@ var Question_Type = React.createClass({
         <option value="">Select an answer type</option>
         <option value="yesno">Yes/No</option>
         <option value="multipleanswer">Multiple Answer</option>
+        <option value="short">Short Answer</option>
         <option value="fillthegap">Fill the gap</option>
       </select>
       <div className="answerList">{answerstype}</div>
