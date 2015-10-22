@@ -8,13 +8,14 @@ $activity = array (
 );
 
 $tincan_data = array (
-    'endpoint' => 'https://cloud.scorm.com/tc/Y8DVMG22NL/'
+//    'endpoint' => 'https://cloud.scorm.com/tc/Y8DVMG22NL/'
+    'endpoint' => 'http://10.44.23.28/dev/heap/endpoint.php/'
 );
 
 $user = array (
     'name' => 'Amaia Anabitarte',
     'username' => 'aanabit@yahoo.es',
     'url' => 'http://localhost:8888/tincan_php/',
-    'pass' => 'amaia044004'
+    'pass' => 'Kaplan2015!'
 );
 

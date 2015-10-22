@@ -1,0 +1,13 @@
+array(6) {
+    ["max_redirects"]=> int(0)
+    ["request_fulluri"]=> int(1)
+    ["ignore_errors"]=> bool(true)
+    ["method"]=> string(4) "POST"
+    ["header"]=> array(4) {
+        [0]=> string(31) "X-Experience-API-Version: 1.0.1"
+        [1]=> string(61) "Authorization: Basic YWFuYWJpdEB5YWhvby5lczphbWFpYTA0NDAwNA=="
+        [2]=> string(30) "Content-Type: application/json"
+        [3]=> string(19) "Content-length: 466"
+        }
+        ["content"]=> string(466)
+        "{"actor":{"objectType":"Agent","name":"Amaia Anabitarte","account":{"name":"aanabit@yahoo.es","homePage":"http://localhost:8888/tincan_php/"}},"verb":{"id":"http://adlnet.gov/expapi/verbs/passed","display":{"en-GB":"passed"}},"result":{"success":true,"completion":true,"response":"is"},"object":{"objectType":"Activity","id":"http://localhost:8888/tincan_php/quiz.php","definition":{"name":{"en-GB":"He __ a good person"},"description":{"en-GB":"Testing Tin Can"}}}}" }

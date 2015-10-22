@@ -37,7 +37,7 @@ class question {
         $this->after = '';
         switch ($question_tmp['type']) {
             case 'yesno':
-                $this->type = 'cloze';
+                $this->type = 'yesno';
                 if (in_array('Yes', $question_tmp['values'])) {
                     $this->values = array(
                         array('value' => 'Yes', 'correct' => true),
@@ -159,6 +159,20 @@ class question {
         $conn->query($sql);
     }
 
+    public function getResponsePattern() {
+        if ($this->getType() == "short") {
+            return $this->values;
+        }
+
+        $pattern = '';
+        foreach ($this->values as $value) {
+            if ($value['correct']) {
+                $pattern .= $value['value'].'[,]';
+            }
+        }
+        return array(substr($pattern, 0, -3));
+    }
+
     public function render() {
         $html = '<div id="q'.$this->id.'" class="question">';
         $html .= '<h3>'.$this->before.'</h3>';
@@ -184,11 +198,12 @@ class question {
                 $html .= '</div>';
                 break;
             case 'choice':
+            case 'yesno':
                 $html .= '<div class="answers">';
                 $i = 1;
 
                 foreach ($this->values as $value) {
-                    $html .= '<div class="answer checkbox">';
+                    $html .= '<div class="answer">';
                     $html .= '<input type="checkbox" name="q'.$this->id.'[]" id="q'.$this->id.'_'.$i.'" value="'.$value['value'].'" />';
                     $html .= '<label for="q'.$this->id.'_'.$i.'">'.$value['value'].'</label>';
                     $html .= '</div>';
@@ -245,6 +260,7 @@ class question {
                 return true;
                 break;
             case 'choice':
+            case 'yesno':
                 foreach ($this->values as $value) {
                     if ($answer == $value['value']) {
                         return $value['correct'];

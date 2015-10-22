@@ -9,5 +9,4 @@ $lrs = new TinCan\RemoteLRS(
     'pass'
 );
 $response = $lrs->queryStatements(['limit' => 2]);
-print_r($response);
 

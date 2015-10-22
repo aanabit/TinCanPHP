@@ -80,6 +80,39 @@ class myTinCanAPI {
             ->set('en-GB', $activity['objectives']);
     }
 
+    function createActivityType($question) {
+        $response = $question->getResponsePattern();
+
+        switch ($question->getType()) {
+            case "cloze":
+            case "choice":
+                $this->object->getDefinition()
+                    ->setChoices([])
+                    ->setInteractionType('choice');
+                $this->object->getDefinition()
+                    ->getChoices();
+                break;
+            case "yesno":
+                $this->object->getDefinition()
+                    ->setInteractionType('fill-in');
+                break;
+            case "fillthegap":
+                $this->object->getDefinition()
+                    ->setInteractionType('fill-in');
+                break;
+            case "short":
+                $this->object->getDefinition()
+                    ->setInteractionType('long-fill-in');
+                break;
+            case "yesno":
+                $this->object->getDefinition()
+                    ->setInteractionType('true-false');
+                break;
+        }
+        $this->object->getDefinition()
+            ->setCorrectResponsesPattern($question->getResponsePattern());
+    }
+
     function createResult($passed, $responses) {
         $this->result = new TinCan\Result();
         $this->result
@@ -106,7 +139,6 @@ class myTinCanAPI {
                 'result' => $this->result
             ]
         );
-
         $response = $this->lrs->saveStatement($statement);
         if ($response->success) {
             print "Statement sent successfully!\n";

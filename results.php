@@ -37,6 +37,7 @@
 
         $myTC = new MyTinCanAPI();
         $myTC->createObject($question->getBefore());
+        $myTC->createActivityType($question);
         $myTC->createVerb($passed);
         if (is_array($answer)) {
             $answer = implode(',',$answer);
@@ -44,11 +45,11 @@
         $myTC->createResult($passed, $answer);
         $myTC->sendStatement();
     }
-//    if ($corrects > 0 && $total > 0) {
-//        $scaled = $corrects / $total;
-//    } else {
-//        $scaled = 0;
-//    }
+    if ($corrects > 0 && $total > 0) {
+        $scaled = $corrects / $total;
+    } else {
+        $scaled = 0;
+    }
 
     $page++;
 
